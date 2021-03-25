@@ -4,5 +4,6 @@ services:
     container_name: lavalink
     image: fredboat/lavalink:dev
     network_mode: host
+    restart: unless-stopped
     volumes:
       - ./application.yml:/opt/Lavalink/application.yml
