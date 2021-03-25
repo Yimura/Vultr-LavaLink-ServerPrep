@@ -9,4 +9,4 @@ cd Vultr-LavaLink-ServerPrep-main
 
 chmod a+x ./*.sh
 
-./ipv6.sh && ./docker.sh && ./lavalink.sh
+./docker.sh && ./ipv6.sh && ./lavalink.sh
