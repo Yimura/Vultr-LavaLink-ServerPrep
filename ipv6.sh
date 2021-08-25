@@ -25,8 +25,7 @@ if [[ $? -ne 0 ]]; then
     WantedBy=multi-user.target" > $service_path
 
     echo "Starting service..."
-    systemctl enable ip
-    systemctl start ip
+    systemctl enable ip --now
 
     exit 0
 fi
@@ -41,9 +40,7 @@ if [[ $? -eq 0 ]]; then
     echo 1 > /proc/sys/net/ipv6/ip_nonlocal_bind
     ip -6 route add local "$ipv6/64" dev lo
 
-    ndppd
-
-    exit 0
+    exec ndppd
 fi
 
 ipv6=$(curl -s6 http://icanhazip.com)
@@ -81,4 +78,4 @@ ip -6 route add local "$ipv6/64" dev lo
 
 echo "Startin ndppd daemon"
 
-ndppd
+exec ndppd
