@@ -61,8 +61,11 @@ fi
 
 echo "Creating ndppd.conf"
 
+nic=$(ip -o -4 route show to default | awk '{print $5}')
+echo "Using NIC '$nic'"
+
 echo "route-ttl 30000
-proxy ens3 {
+proxy $nic {
     router yes
     timeout 500
     ttl 30000
