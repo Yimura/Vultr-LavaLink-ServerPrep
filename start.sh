@@ -6,4 +6,6 @@ while fuser /var/{lib/{dpkg,apt/lists},cache/apt/archives}/lock >/dev/null 2>&1;
     sleep 5
 done
 
-./docker.sh && ./ipv6.sh && ./lavalink.sh
+./docker.sh
+./ipv6.sh
+./lavalink.sh
