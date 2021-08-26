@@ -9,3 +9,6 @@ done
 ./docker.sh
 ./ipv6.sh
 ./lavalink.sh
+
+# because our system is completely vanilla we disable the firewall
+ufw disable
